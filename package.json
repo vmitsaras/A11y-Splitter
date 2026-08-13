@@ -1,6 +1,6 @@
 {
   "name": "a11y-text-split",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Accessible, dependency-free text splitting for graphemes, words, and rendered lines.",
   "type": "module",
   "main": "./dist/index.js",
