@@ -1,0 +1,97 @@
+{
+  "name": "a11y-text-split",
+  "version": "1.0.0",
+  "description": "Accessible, dependency-free text splitting for graphemes, words, and rendered lines.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./index.min.js": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.min.js"
+    },
+    "./lines": {
+      "types": "./dist/lines.d.ts",
+      "import": "./dist/lines.js"
+    },
+    "./lines.min.js": {
+      "types": "./dist/lines.d.ts",
+      "import": "./dist/lines.min.js"
+    },
+    "./scroll": {
+      "types": "./dist/scroll.d.ts",
+      "import": "./dist/scroll.js"
+    },
+    "./scroll.min.js": {
+      "types": "./dist/scroll.d.ts",
+      "import": "./dist/scroll.min.js"
+    },
+    "./docs": {
+      "types": "./dist/docs.d.ts",
+      "import": "./dist/docs.js"
+    },
+    "./docs.min.js": {
+      "types": "./dist/docs.d.ts",
+      "import": "./dist/docs.min.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css",
+    "./dist/lines.js",
+    "./dist/lines.min.js"
+  ],
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run pages:build",
+    "build:dist": "npm run clean && tsdown && npm run copy:assets && npm run bundles:check",
+    "copy:assets": "node -e \"const fs = require('node:fs'); if (fs.existsSync('src/styles.css')) { fs.mkdirSync('dist', { recursive: true }); fs.copyFileSync('src/styles.css', 'dist/styles.css'); }\"",
+    "bundles:check": "node scripts/check-bundles.mjs",
+    "metadata:generate": "node scripts/generate-page-metadata.mjs",
+    "pages:generate": "node scripts/build-pages.mjs",
+    "pages:build": "npm run metadata:generate && npm run build:dist && npm run pages:generate",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "pack:check": "npm pack --dry-run",
+    "prepack": "npm run build:dist",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "npm run test && npm run typecheck && npm run build:dist && changeset publish"
+  },
+  "keywords": [
+    "accessibility",
+    "animation",
+    "grapheme",
+    "text-split",
+    "typography"
+  ],
+  "author": "Vasileios Mitsaras",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmitsaras/A11y-Splitter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vmitsaras/A11y-Splitter/issues"
+  },
+  "homepage": "https://vmitsaras.github.io/A11y-Splitter/",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7",
+    "linkedom": "^0.18.12",
+    "tsdown": "^0.15.4",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

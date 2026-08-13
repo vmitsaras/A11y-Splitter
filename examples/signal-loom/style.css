@@ -1,0 +1,281 @@
+:root {
+  color-scheme: dark;
+  background: #071309;
+  color: #f2ffe8;
+}
+
+.loom {
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  gap: clamp(1.15rem, 3vw, 2rem);
+  padding: 7rem max(1.25rem, calc((100% - 76rem) / 2));
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(90deg, rgba(141, 242, 155, 0.15) 0 1px, transparent 1px 3.8rem),
+    linear-gradient(150deg, rgba(255, 230, 96, 0.16), transparent 42%),
+    #071309;
+}
+
+.loom__panel {
+  width: min(100%, 36rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(242, 255, 232, 0.24);
+}
+
+.loom__control {
+  display: grid;
+  gap: 0.7rem;
+  min-width: 0;
+  color: #8df29b;
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.loom__slider {
+  width: 100%;
+  accent-color: #8df29b;
+}
+
+.loom__output {
+  min-width: 7ch;
+  color: #fff0a6;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 850;
+  text-align: right;
+}
+
+.loom__label,
+.loom__status {
+  margin: 0;
+  color: #8df29b;
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.loom__text {
+  max-width: 14.5ch;
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 7.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.loom__text .a11y-text-split__space {
+  display: inline-block;
+  width: 0.36em;
+}
+
+.loom__text .a11y-text-split__word,
+.loom__text .a11y-text-split__punctuation {
+  --focus-distance: 4;
+  --focus-strength: 0;
+  display: inline-block;
+  color: #f2ffe8;
+  opacity: calc(0.32 + var(--focus-strength) * 0.68);
+  transform:
+    translateY(calc(var(--focus-strength) * -0.09em))
+    scale(calc(1 + var(--focus-strength) * 0.055));
+  transition: color 160ms ease, opacity 160ms ease, transform 160ms ease;
+  transform-origin: left bottom;
+}
+
+.loom__text .is-active {
+  color: #fff0a6;
+  opacity: 1;
+  text-shadow: 0 0 0.45em rgba(141, 242, 155, 0.5);
+}
+
+.loom__status {
+  color: rgba(242, 255, 232, 0.72);
+}
+
+.loom-scroll {
+  min-height: 250svh;
+  overflow: clip;
+  background:
+    repeating-linear-gradient(0deg, rgba(7, 19, 9, 0.12) 0 1px, transparent 1px 4.5rem),
+    linear-gradient(135deg, rgba(255, 240, 166, 0.86), rgba(141, 242, 155, 0.9));
+  color: #071309;
+}
+
+.loom-scroll__sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  gap: clamp(1rem, 2.4vw, 1.6rem);
+  padding: 7rem max(1.25rem, calc((100% - 76rem) / 2));
+}
+
+.loom-scroll__meter {
+  width: min(100%, 36rem);
+  height: 0.4rem;
+  overflow: hidden;
+  border: 1px solid rgba(7, 19, 9, 0.36);
+  border-radius: 999px;
+}
+
+.loom-scroll__meter span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #071309;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.loom-scroll__label,
+.loom-scroll__note {
+  margin: 0;
+  color: rgba(7, 19, 9, 0.72);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.loom-scroll__text {
+  max-width: 12.5ch;
+  margin: 0;
+  font-size: clamp(3rem, 7.5vw, 6.5rem);
+  font-weight: 930;
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+.loom-scroll__text .a11y-text-split__space {
+  display: inline-block;
+  width: 0.26em;
+}
+
+.loom-scroll__text .a11y-text-split__word,
+.loom-scroll__text .a11y-text-split__punctuation {
+  --scroll-thread-index: 0;
+  display: inline-block;
+  color: #071309;
+  opacity: 0.2;
+  filter: blur(0.18em);
+  transform:
+    translateY(calc((var(--scroll-thread-index) - 4) * 0.11em))
+    rotate(calc((var(--scroll-thread-index) - 4) * -2.2deg))
+    scale(0.88);
+  transform-origin: left bottom;
+  will-change: opacity, filter, transform;
+}
+
+.loom-scroll__note {
+  max-width: 24rem;
+  line-height: 1.55;
+}
+
+[data-scroll-driver="fallback"] .loom-scroll__token {
+  opacity: 1;
+  filter: blur(0);
+  transform: none;
+  transition:
+    opacity 520ms ease,
+    filter 620ms ease,
+    transform 720ms cubic-bezier(.16, 1, .3, 1);
+  transition-delay: calc(var(--scroll-thread-index) * 55ms);
+}
+
+[data-scroll-driver="fallback"]:not([data-scroll-visible]) .loom-scroll__token {
+  opacity: 0.18;
+  filter: blur(0.18em);
+  transform:
+    translateY(calc((var(--scroll-thread-index) - 4) * 0.11em))
+    rotate(calc((var(--scroll-thread-index) - 4) * -2.2deg))
+    scale(0.88);
+}
+
+.recipe {
+  color: #071309;
+  background: #8df29b;
+}
+
+@supports (animation-timeline: view()) and (animation-range: cover 0% cover 100%) {
+  .loom-scroll[data-scroll-driver="native"] .loom-scroll__token {
+    animation: thread-word-scroll 1s linear both;
+    animation-timeline: var(--a11y-text-split-scroll-timeline);
+    animation-range: cover 0% cover 100%;
+  }
+
+  .loom-scroll[data-scroll-driver="native"] .loom-scroll__meter span {
+    animation: thread-meter-scroll 1s linear both;
+    animation-timeline: var(--a11y-text-split-scroll-timeline);
+    animation-range: cover 6% cover 88%;
+  }
+
+  @keyframes thread-word-scroll {
+    0% {
+      opacity: 0.18;
+      filter: blur(0.22em);
+      transform:
+        translateY(calc((var(--scroll-thread-index) - 4) * 0.14em + 0.7em))
+        rotate(calc((var(--scroll-thread-index) - 4) * -3deg))
+        scale(0.86);
+    }
+
+    28%, 78% {
+      opacity: 1;
+      filter: blur(0);
+      transform: none;
+    }
+
+    100% {
+      opacity: 0.28;
+      filter: blur(0.12em);
+      transform:
+        translateY(calc((4 - var(--scroll-thread-index)) * 0.08em - 0.45em))
+        rotate(calc((var(--scroll-thread-index) - 4) * 1.3deg))
+        scale(0.94);
+    }
+  }
+
+  @keyframes thread-meter-scroll {
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+
+@media (max-width: 42rem) {
+  .loom__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .loom__output {
+    text-align: left;
+  }
+
+  .loom-scroll__sticky {
+    align-content: start;
+    padding-block: 6.5rem 3rem;
+  }
+
+  .loom-scroll__text {
+    font-size: clamp(3rem, 14vw, 4.6rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loom-scroll__meter span,
+  .loom-scroll__token {
+    animation: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

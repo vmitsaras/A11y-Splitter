@@ -1,0 +1,104 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 20rem;
+  margin: 0;
+}
+
+.scroll-intro,
+.scroll-stage {
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  padding: 7rem max(1.25rem, calc((100% - 76rem) / 2));
+}
+
+.scroll-intro {
+  position: relative;
+  min-height: 92svh;
+}
+
+.scroll-intro::after {
+  content: "Scroll";
+  position: absolute;
+  bottom: 2rem;
+  left: max(1.25rem, calc((100% - 76rem) / 2));
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.scroll-intro__eyebrow,
+.scroll-stage__eyebrow {
+  margin: 0 0 1.5rem;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.scroll-intro h1 {
+  max-width: 10ch;
+  margin: 0;
+  font-size: clamp(4rem, 11vw, 10rem);
+  line-height: 0.82;
+  letter-spacing: -0.075em;
+}
+
+.scroll-intro__copy {
+  max-width: 38rem;
+  margin: 2rem 0 0;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  opacity: 0.72;
+}
+
+.scroll-stage {
+  min-height: 115svh;
+}
+
+.scroll-stage__content {
+  width: min(100%, 68rem);
+}
+
+.scroll-stage__text {
+  margin: 0;
+}
+
+[data-scroll-driver="fallback"] .reveal-token {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition:
+    opacity 650ms cubic-bezier(.2, .8, .2, 1),
+    transform 750ms cubic-bezier(.16, 1, .3, 1),
+    filter 650ms ease;
+  transition-delay: calc(var(--reveal-index, 0) * 26ms);
+}
+
+[data-scroll-driver="fallback"]:not([data-scroll-visible]) .reveal-token {
+  opacity: 0;
+  transform: var(--reveal-hidden-transform, translateY(1em));
+  filter: var(--reveal-hidden-filter, none);
+}
+
+[data-scroll-driver="fallback"][data-scroll-exit="above"]:not([data-scroll-visible]) .reveal-token {
+  transform: var(--reveal-exit-transform, translateY(-0.65em));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-token {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}

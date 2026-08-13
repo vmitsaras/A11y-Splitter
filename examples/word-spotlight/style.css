@@ -1,0 +1,60 @@
+:root {
+  color-scheme: dark;
+  background: #080f23;
+  color: #edf1ff;
+}
+
+.spotlight {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 7rem max(1.25rem, calc((100% - 76rem) / 2));
+  background:
+    radial-gradient(circle at 50% 50%, rgba(70, 106, 212, 0.28), transparent 35rem),
+    #080f23;
+}
+
+.spotlight__label,
+.spotlight__status {
+  margin: 0;
+  color: #91adff;
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.spotlight__text {
+  max-width: 15ch;
+  margin: 2.5rem 0;
+  font-size: clamp(3.1rem, 8vw, 8rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.spotlight__text .a11y-text-split__word {
+  display: inline-block;
+  border-radius: 0.12em;
+  color: rgba(237, 241, 255, 0.28);
+  cursor: default;
+  transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.spotlight__text .a11y-text-split__word:hover,
+.spotlight__text .a11y-text-split__word.is-active {
+  color: #080f23;
+  background: #dbe3ff;
+  transform: translateY(-0.08em) rotate(-1deg);
+}
+
+.spotlight__status {
+  min-height: 1.2em;
+  color: #edf1ff;
+}
+
+.recipe {
+  color: #080f23;
+  background: #dbe3ff;
+}

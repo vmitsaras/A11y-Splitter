@@ -1,0 +1,78 @@
+:root {
+  color-scheme: dark;
+  color: #fff8e8;
+  background: #11100d;
+}
+
+.scroll-intro {
+  background: #11100d;
+}
+
+.scroll-intro__eyebrow,
+.scroll-stage__eyebrow {
+  color: #ffca3a;
+}
+
+.scroll-stage {
+  overflow: hidden;
+}
+
+.scroll-stage--one { background: #ee4f28; }
+.scroll-stage--two { background: #5d3df2; }
+.scroll-stage--three { background: #087f68; }
+
+.scroll-stage__text {
+  max-width: 10ch;
+  font-size: clamp(4rem, 11vw, 10rem);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.08em;
+}
+
+.scroll-stage__text .a11y-text-split__letter,
+.scroll-stage__text .a11y-text-split__punctuation {
+  display: inline-block;
+  --reveal-hidden-transform:
+    translateY(calc(1.15em + var(--reveal-index) * 0.014em))
+    scale(0.82)
+    rotate(calc((var(--reveal-index) - 8) * 0.7deg));
+  --reveal-exit-transform:
+    translateY(calc(-0.8em - var(--reveal-index) * 0.008em))
+    scale(1.08)
+    rotate(calc((var(--reveal-index) - 8) * -0.45deg));
+}
+
+[data-scroll-driver="fallback"] .reveal-token {
+  transition-duration: 850ms;
+  transition-delay: calc(var(--reveal-index, 0) * 34ms);
+}
+
+@supports (animation-timeline: view()) and (animation-range: cover 0% cover 100%) {
+  [data-scroll-driver="native"] .reveal-token {
+    opacity: 0;
+    transform: translateY(0.8em) rotate(6deg);
+    animation: cascade-scroll 1s linear both;
+    animation-timeline: var(--a11y-text-split-scroll-timeline);
+    animation-range: cover 0% cover 100%;
+  }
+
+  @keyframes cascade-scroll {
+    0% {
+      opacity: 0;
+      transform: translateY(0.8em) rotate(6deg);
+    }
+    30%, 68% {
+      opacity: 1;
+      transform: none;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-0.6em) rotate(-4deg);
+    }
+  }
+}
+
+.recipe {
+  color: #11100d;
+  background: #ffca3a;
+}

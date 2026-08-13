@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- page-metadata:start -->
+  <meta name="description" content="Compare semantic word splitting with decorative visual letters in a minimal setup that preserves one readable source for assistive technology.">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Vasileios Mitsaras">
+  <link rel="canonical" href="https://vmitsaras.github.io/A11y-Splitter/basic/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="A11yTextSplit">
+  <meta property="og:title" content="Semantic and Visual Text Splitting | A11yTextSplit">
+  <meta property="og:description" content="Compare semantic word splitting with decorative visual letters in a minimal setup that preserves one readable source for assistive technology.">
+  <meta property="og:url" content="https://vmitsaras.github.io/A11y-Splitter/basic/">
+  <meta property="og:image" content="https://vmitsaras.github.io/A11y-Splitter/meta-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="A11yTextSplit social card showing a paper ribbon separating into text tokens beside the words: Split the text, not the experience.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Semantic and Visual Text Splitting | A11yTextSplit">
+  <meta name="twitter:description" content="Compare semantic word splitting with decorative visual letters in a minimal setup that preserves one readable source for assistive technology.">
+  <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Splitter/meta-image.png">
+  <meta name="twitter:image:alt" content="A11yTextSplit social card showing a paper ribbon separating into text tokens beside the words: Split the text, not the experience.">
+  <title>Semantic and Visual Text Splitting | A11yTextSplit</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://vmitsaras.github.io/A11y-Splitter/basic/#webpage",
+        "url": "https://vmitsaras.github.io/A11y-Splitter/basic/",
+        "name": "Semantic and Visual Text Splitting | A11yTextSplit",
+        "description": "Compare semantic word splitting with decorative visual letters in a minimal setup that preserves one readable source for assistive technology.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://vmitsaras.github.io/A11y-Splitter/#website"
+        },
+        "mainEntity": {
+          "@id": "https://vmitsaras.github.io/A11y-Splitter/basic/#software"
+        },
+        "primaryImageOfPage": "https://vmitsaras.github.io/A11y-Splitter/meta-image.png"
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://vmitsaras.github.io/A11y-Splitter/basic/#software",
+        "name": "A11yTextSplit",
+        "description": "Accessible, dependency-free text splitting for graphemes, words, and rendered lines.",
+        "codeRepository": "https://github.com/vmitsaras/A11y-Splitter",
+        "programmingLanguage": [
+          "TypeScript",
+          "JavaScript"
+        ],
+        "runtimePlatform": "Browser",
+        "version": "1.0.0",
+        "license": "https://github.com/vmitsaras/A11y-Splitter/blob/main/LICENSE",
+        "keywords": [
+          "accessibility",
+          "animation",
+          "grapheme",
+          "text-split",
+          "typography"
+        ],
+        "image": "https://vmitsaras.github.io/A11y-Splitter/meta-image.png",
+        "author": {
+          "@id": "https://github.com/vmitsaras/#person"
+        },
+        "targetProduct": {
+          "@type": "SoftwareApplication",
+          "name": "A11yTextSplit",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Any",
+          "runtimePlatform": "Browser",
+          "softwareVersion": "1.0.0",
+          "url": "https://www.npmjs.com/package/a11y-text-split"
+        },
+        "sameAs": [
+          "https://github.com/vmitsaras/A11y-Splitter",
+          "https://www.npmjs.com/package/a11y-text-split"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vmitsaras.github.io/A11y-Splitter/#website",
+        "url": "https://vmitsaras.github.io/A11y-Splitter/",
+        "name": "A11yTextSplit Demos",
+        "description": "Split text into styleable letter, word, or rendered-line tokens for animation while preserving one readable source for assistive technologies.",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://github.com/vmitsaras/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://github.com/vmitsaras/#person",
+        "name": "Vasileios Mitsaras",
+        "url": "https://github.com/vmitsaras/",
+        "sameAs": [
+          "https://github.com/vmitsaras/",
+          "https://linkedin.com/in/vasilis-mitsaras"
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- page-metadata:end -->
+
+  <link rel="stylesheet" href="../dist/styles.css">
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: system-ui, sans-serif;
+    }
+
+    body {
+      max-width: 48rem;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    .a11y-text-split__word,
+    .a11y-text-split__letter,
+    .a11y-text-split__punctuation {
+      display: inline-block;
+    }
+
+    [data-example="letters"] .a11y-text-split__letter {
+      transform: rotate(calc((var(--a11y-text-split-letter-index) - 5) * 0.35deg));
+    }
+
+    a:focus-visible {
+      outline: 3px solid currentColor;
+      outline-offset: 4px;
+    }
+
+    .demo-footer {
+      --demo-footer-background: #0f172a;
+      --demo-footer-color: #f8fafc;
+      --demo-footer-muted-color: #cbd5e1;
+      --demo-footer-link-color: #ffffff;
+      --demo-footer-border-color: rgba(255, 255, 255, 0.16);
+      --demo-footer-focus-color: #facc15;
+      --demo-footer-radius: 1.25rem;
+      --demo-footer-space: clamp(1rem, 2vw, 1.5rem);
+
+      --_background: var(--demo-footer-background);
+      --_color: var(--demo-footer-color);
+      --_muted-color: var(--demo-footer-muted-color);
+      --_link-color: var(--demo-footer-link-color);
+      --_border-color: var(--demo-footer-border-color);
+      --_focus-color: var(--demo-footer-focus-color);
+      --_radius: var(--demo-footer-radius);
+      --_space: var(--demo-footer-space);
+
+      margin-block-start: clamp(3rem, 8vw, 6rem);
+      padding: var(--_space);
+      color: var(--_color);
+      background: var(--_background);
+      border: 1px solid var(--_border-color);
+      border-radius: var(--_radius);
+    }
+
+    .demo-footer__inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .demo-footer__brand {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .demo-footer__eyebrow,
+    .demo-footer__credit,
+    .demo-footer__meta {
+      margin: 0;
+    }
+
+    .demo-footer__eyebrow,
+    .demo-footer__meta {
+      color: var(--_muted-color);
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .demo-footer__credit {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .demo-footer__plugin {
+      font-weight: 700;
+    }
+
+    .demo-footer__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .demo-footer__link {
+      color: var(--_link-color);
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.2em;
+    }
+
+    .demo-footer__link:hover {
+      text-decoration-thickness: 0.15em;
+    }
+
+    .demo-footer__link:focus-visible {
+      outline: 3px solid var(--_focus-color);
+      outline-offset: 0.25rem;
+      border-radius: 0.25rem;
+    }
+
+    .demo-footer__separator {
+      margin-inline: 0.35rem;
+    }
+
+    @media (max-width: 42rem) {
+      .demo-footer__inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .demo-footer__links {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Example navigation"><a href="../">← All examples</a></nav>
+  <main>
+    <h1>Basic A11yTextSplit example</h1>
+
+    <section aria-labelledby="semantic-heading">
+      <h2 id="semantic-heading">Semantic words</h2>
+      <p data-a11y-text-split data-split-type="words">
+        This sentence keeps its real text in the accessibility tree.
+      </p>
+    </section>
+
+    <section aria-labelledby="visual-heading">
+      <h2 id="visual-heading">Decorative letters</h2>
+      <p data-example="letters" data-a11y-text-split data-split-type="letters" data-split-mode="visual">
+        One clean source, many visual pieces.
+      </p>
+    </section>
+  </main>
+
+  <footer class="demo-footer" data-demo-footer>
+    <div class="demo-footer__inner">
+      <div class="demo-footer__brand">
+        <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+
+        <p class="demo-footer__credit">
+          <span class="demo-footer__plugin">A11yTextSplit</span>
+          <span class="demo-footer__separator" aria-hidden="true">&middot;</span>
+          Built by
+          <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a>
+          <span class="demo-footer__separator" aria-hidden="true">&middot;</span>
+          <a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a>
+        </p>
+
+        <p class="demo-footer__meta">
+          <span>a11y-text-split</span>
+          <span class="demo-footer__separator" aria-hidden="true">&middot;</span>
+          <span>MIT License</span>
+        </p>
+      </div>
+
+      <nav class="demo-footer__nav" aria-label="Project links">
+        <ul class="demo-footer__links">
+          <li class="demo-footer__item">
+            <a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Splitter">GitHub repository</a>
+          </li>
+          <li class="demo-footer__item">
+            <a class="demo-footer__link" href="https://www.npmjs.com/package/a11y-splitter">npm package</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initTextSplitAll } from "../dist/index.js";
+
+    initTextSplitAll();
+  </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- page-metadata:start -->
+  <meta name="description" content="Stage responsive heading lines across scrolling chapters, then keep each chapter visible and stop observing it after its first reveal.">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Vasileios Mitsaras">
+  <link rel="canonical" href="https://vmitsaras.github.io/A11y-Splitter/scroll-line-chapters/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="A11yTextSplit">
+  <meta property="og:title" content="Once-Only Scroll Line Reveals | A11yTextSplit">
+  <meta property="og:description" content="Stage responsive heading lines across scrolling chapters, then keep each chapter visible and stop observing it after its first reveal.">
+  <meta property="og:url" content="https://vmitsaras.github.io/A11y-Splitter/scroll-line-chapters/">
+  <meta property="og:image" content="https://vmitsaras.github.io/A11y-Splitter/meta-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="A11yTextSplit social card showing a paper ribbon separating into text tokens beside the words: Split the text, not the experience.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Once-Only Scroll Line Reveals | A11yTextSplit">
+  <meta name="twitter:description" content="Stage responsive heading lines across scrolling chapters, then keep each chapter visible and stop observing it after its first reveal.">
+  <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Splitter/meta-image.png">
+  <meta name="twitter:image:alt" content="A11yTextSplit social card showing a paper ribbon separating into text tokens beside the words: Split the text, not the experience.">
+  <title>Once-Only Scroll Line Reveals | A11yTextSplit</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://vmitsaras.github.io/A11y-Splitter/scroll-line-chapters/#webpage",
+        "url": "https://vmitsaras.github.io/A11y-Splitter/scroll-line-chapters/",
+        "name": "Once-Only Scroll Line Reveals | A11yTextSplit",
+        "description": "Stage responsive heading lines across scrolling chapters, then keep each chapter visible and stop observing it after its first reveal.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://vmitsaras.github.io/A11y-Splitter/#website"
+        },
+        "mainEntity": {
+          "@id": "https://vmitsaras.github.io/A11y-Splitter/scroll-line-chapters/#software"
+        },
+        "primaryImageOfPage": "https://vmitsaras.github.io/A11y-Splitter/meta-image.png"
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://vmitsaras.github.io/A11y-Splitter/scroll-line-chapters/#software",
+        "name": "A11yTextSplit",
+        "description": "Accessible, dependency-free text splitting for graphemes, words, and rendered lines.",
+        "codeRepository": "https://github.com/vmitsaras/A11y-Splitter",
+        "programmingLanguage": [
+          "TypeScript",
+          "JavaScript"
+        ],
+        "runtimePlatform": "Browser",
+        "version": "1.0.0",
+        "license": "https://github.com/vmitsaras/A11y-Splitter/blob/main/LICENSE",
+        "keywords": [
+          "accessibility",
+          "animation",
+          "grapheme",
+          "text-split",
+          "typography"
+        ],
+        "image": "https://vmitsaras.github.io/A11y-Splitter/meta-image.png",
+        "author": {
+          "@id": "https://github.com/vmitsaras/#person"
+        },
+        "targetProduct": {
+          "@type": "SoftwareApplication",
+          "name": "A11yTextSplit",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Any",
+          "runtimePlatform": "Browser",
+          "softwareVersion": "1.0.0",
+          "url": "https://www.npmjs.com/package/a11y-text-split"
+        },
+        "sameAs": [
+          "https://github.com/vmitsaras/A11y-Splitter",
+          "https://www.npmjs.com/package/a11y-text-split"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vmitsaras.github.io/A11y-Splitter/#website",
+        "url": "https://vmitsaras.github.io/A11y-Splitter/",
+        "name": "A11yTextSplit Demos",
+        "description": "Split text into styleable letter, word, or rendered-line tokens for animation while preserving one readable source for assistive technologies.",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://github.com/vmitsaras/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://github.com/vmitsaras/#person",
+        "name": "Vasileios Mitsaras",
+        "url": "https://github.com/vmitsaras/",
+        "sameAs": [
+          "https://github.com/vmitsaras/",
+          "https://linkedin.com/in/vasilis-mitsaras"
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- page-metadata:end -->
+
+  <link rel="stylesheet" href="../dist/styles.css">
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="../scroll-shared.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body data-scroll-fallback>
+  <nav class="demo-nav" aria-label="Demo navigation"><a href="../"><span>← All demos</span></a></nav>
+  <main>
+    <header class="scroll-intro">
+      <p class="scroll-intro__eyebrow">Scroll reveal · Lines</p>
+      <h1>Line chapters</h1>
+      <p class="scroll-intro__copy">Responsive rendered lines stack into place and regroup whenever the layout changes.</p>
+    </header>
+
+    <section class="scroll-stage"><div class="scroll-stage__content">
+      <p class="scroll-stage__eyebrow">Chapter one</p>
+      <h2 class="scroll-stage__text" data-a11y-text-split data-split-type="lines" data-split-mode="visual" data-split-scroll data-scroll-once>The horizon moves when you do.</h2>
+    </div></section>
+    <section class="scroll-stage"><div class="scroll-stage__content">
+      <p class="scroll-stage__eyebrow">Chapter two</p>
+      <h2 class="scroll-stage__text" data-a11y-text-split data-split-type="lines" data-split-mode="visual" data-split-scroll data-scroll-once>Distance becomes a different kind of detail.</h2>
+    </div></section>
+    <section class="scroll-stage"><div class="scroll-stage__content">
+      <p class="scroll-stage__eyebrow">Chapter three</p>
+      <h2 class="scroll-stage__text" data-a11y-text-split data-split-type="lines" data-split-mode="visual" data-split-scroll data-scroll-once>Every arrival redraws the map.</h2>
+    </div></section>
+
+    <section class="recipe" aria-labelledby="recipe-title">
+      <p class="recipe__eyebrow">Basic recipe</p><h2 id="recipe-title">Trigger responsive lines</h2>
+      <div class="recipe__grid">
+        <article class="code-card"><h3>HTML</h3><pre><code>&lt;h2 data-a11y-text-split
+    data-split-type="lines"
+    data-split-mode="visual"
+    data-split-scroll
+    data-scroll-once&gt;
+  The horizon moves when you do.
+&lt;/h2&gt;</code></pre></article>
+        <article class="code-card"><h3>JavaScript</h3><pre><code>import { splitAll } from
+  '../dist/index.js';
+import '../dist/lines.js';
+import { scrollRevealAll } from
+  '../dist/scroll.js';
+
+splitAll();
+scrollRevealAll();</code></pre></article>
+      </div>
+      <p class="recipe__note">The <code>data-scroll-once</code> option keeps each chapter visible after its first reveal and immediately removes that target from the observer.</p>
+    </section>
+  </main>
+  <footer class="demo-footer" data-demo-footer>
+    <div class="demo-footer__inner">
+      <div class="demo-footer__brand">
+        <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+        <p class="demo-footer__credit">
+          <span class="demo-footer__plugin">A11yTextSplit</span>
+          <span class="demo-footer__separator" aria-hidden="true">&middot;</span>
+          Built by
+          <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a>
+          <span class="demo-footer__separator" aria-hidden="true">&middot;</span>
+          <a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a>
+        </p>
+        <p class="demo-footer__meta">
+          <span>a11y-text-split</span>
+          <span class="demo-footer__separator" aria-hidden="true">&middot;</span>
+          <span>MIT License</span>
+        </p>
+      </div>
+      <nav class="demo-footer__nav" aria-label="Project links">
+        <ul class="demo-footer__links">
+          <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Splitter">GitHub repository</a></li>
+          <li class="demo-footer__item"><a class="demo-footer__link" href="https://www.npmjs.com/package/a11y-splitter">npm package</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <script type="module" src="../scroll-demo.js?v=3"></script>
+</body>
+</html>

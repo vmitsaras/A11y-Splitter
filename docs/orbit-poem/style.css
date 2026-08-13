@@ -1,0 +1,135 @@
+:root {
+  color-scheme: dark;
+  background: #05070a;
+  color: #f7f0df;
+}
+
+.orbit {
+  --field-x: 50%;
+  --field-y: 50%;
+  --orbit-radius-x: min(31vw, 24rem);
+  --orbit-radius-y: min(18vw, 12.5rem);
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: center;
+  padding: 7rem max(1.25rem, calc((100% - 78rem) / 2));
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(90deg, rgba(126, 241, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(126, 241, 255, 0.08) 1px, transparent 1px),
+    #05070a;
+  background-size: 5rem 5rem;
+}
+
+.orbit::before,
+.orbit::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: var(--field-x);
+  top: var(--field-y);
+  width: min(72vw, 54rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(126, 241, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.orbit::after {
+  width: min(48vw, 34rem);
+  border-color: rgba(247, 240, 223, 0.18);
+}
+
+.orbit__kicker,
+.orbit__caption {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.orbit__kicker {
+  color: #7ef1ff;
+}
+
+.orbit__caption {
+  justify-self: end;
+  max-width: 18rem;
+  color: #c7d4cf;
+  line-height: 1.5;
+  text-align: right;
+}
+
+.orbit__text {
+  position: relative;
+  width: min(100%, 74rem);
+  height: clamp(22rem, 54vw, 34rem);
+  margin: 0;
+  justify-self: center;
+  font-size: clamp(1.35rem, 4vw, 4.4rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.orbit__text .a11y-text-split__visual {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.orbit__text .a11y-text-split__space {
+  display: none;
+}
+
+.orbit__text .a11y-text-split__word,
+.orbit__text .a11y-text-split__punctuation {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: inline-block;
+  padding: 0.05em 0.18em;
+  border: 1px solid color-mix(in srgb, currentColor 40%, transparent);
+  background: rgba(5, 7, 10, 0.76);
+  color: hsl(var(--orbit-hue, 180) 95% 76%);
+  transform:
+    translate(-50%, -50%)
+    translate(
+      calc(var(--orbit-x, 0) * var(--orbit-radius-x)),
+      calc(var(--orbit-y, 0) * var(--orbit-radius-y))
+    )
+    rotate(var(--orbit-rotation, 0deg))
+    scale(var(--orbit-scale, 1));
+  transform-origin: center;
+  will-change: transform;
+}
+
+.recipe {
+  color: #071114;
+  background: #a8f4ff;
+}
+
+@media (max-width: 46rem) {
+  .orbit {
+    --orbit-radius-x: min(34vw, 11rem);
+    --orbit-radius-y: min(36vw, 12rem);
+  }
+
+  .orbit__text {
+    height: 31rem;
+    font-size: clamp(1.2rem, 9vw, 2.6rem);
+  }
+
+  .orbit__caption {
+    justify-self: start;
+    text-align: left;
+  }
+}

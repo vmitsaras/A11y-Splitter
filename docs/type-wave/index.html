@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- page-metadata:start -->
+  <meta name="description" content="Send split letters through a continuous sine wave with a pause control while reduced-motion preferences keep the heading readable.">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Vasileios Mitsaras">
+  <link rel="canonical" href="https://vmitsaras.github.io/A11y-Splitter/type-wave/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="A11yTextSplit">
+  <meta property="og:title" content="Controllable Letter Wave Demo | A11yTextSplit">
+  <meta property="og:description" content="Send split letters through a continuous sine wave with a pause control while reduced-motion preferences keep the heading readable.">
+  <meta property="og:url" content="https://vmitsaras.github.io/A11y-Splitter/type-wave/">
+  <meta property="og:image" content="https://vmitsaras.github.io/A11y-Splitter/meta-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="A11yTextSplit social card showing a paper ribbon separating into text tokens beside the words: Split the text, not the experience.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Controllable Letter Wave Demo | A11yTextSplit">
+  <meta name="twitter:description" content="Send split letters through a continuous sine wave with a pause control while reduced-motion preferences keep the heading readable.">
+  <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Splitter/meta-image.png">
+  <meta name="twitter:image:alt" content="A11yTextSplit social card showing a paper ribbon separating into text tokens beside the words: Split the text, not the experience.">
+  <title>Controllable Letter Wave Demo | A11yTextSplit</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://vmitsaras.github.io/A11y-Splitter/type-wave/#webpage",
+        "url": "https://vmitsaras.github.io/A11y-Splitter/type-wave/",
+        "name": "Controllable Letter Wave Demo | A11yTextSplit",
+        "description": "Send split letters through a continuous sine wave with a pause control while reduced-motion preferences keep the heading readable.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://vmitsaras.github.io/A11y-Splitter/#website"
+        },
+        "mainEntity": {
+          "@id": "https://vmitsaras.github.io/A11y-Splitter/type-wave/#software"
+        },
+        "primaryImageOfPage": "https://vmitsaras.github.io/A11y-Splitter/meta-image.png"
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://vmitsaras.github.io/A11y-Splitter/type-wave/#software",
+        "name": "A11yTextSplit",
+        "description": "Accessible, dependency-free text splitting for graphemes, words, and rendered lines.",
+        "codeRepository": "https://github.com/vmitsaras/A11y-Splitter",
+        "programmingLanguage": [
+          "TypeScript",
+          "JavaScript"
+        ],
+        "runtimePlatform": "Browser",
+        "version": "1.0.0",
+        "license": "https://github.com/vmitsaras/A11y-Splitter/blob/main/LICENSE",
+        "keywords": [
+          "accessibility",
+          "animation",
+          "grapheme",
+          "text-split",
+          "typography"
+        ],
+        "image": "https://vmitsaras.github.io/A11y-Splitter/meta-image.png",
+        "author": {
+          "@id": "https://github.com/vmitsaras/#person"
+        },
+        "targetProduct": {
+          "@type": "SoftwareApplication",
+          "name": "A11yTextSplit",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Any",
+          "runtimePlatform": "Browser",
+          "softwareVersion": "1.0.0",
+          "url": "https://www.npmjs.com/package/a11y-text-split"
+        },
+        "sameAs": [
+          "https://github.com/vmitsaras/A11y-Splitter",
+          "https://www.npmjs.com/package/a11y-text-split"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vmitsaras.github.io/A11y-Splitter/#website",
+        "url": "https://vmitsaras.github.io/A11y-Splitter/",
+        "name": "A11yTextSplit Demos",
+        "description": "Split text into styleable letter, word, or rendered-line tokens for animation while preserving one readable source for assistive technologies.",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://github.com/vmitsaras/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://github.com/vmitsaras/#person",
+        "name": "Vasileios Mitsaras",
+        "url": "https://github.com/vmitsaras/",
+        "sameAs": [
+          "https://github.com/vmitsaras/",
+          "https://linkedin.com/in/vasilis-mitsaras"
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- page-metadata:end -->
+
+  <link rel="stylesheet" href="../dist/styles.css">
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <nav class="demo-nav" aria-label="Demo navigation">
+    <a href="../"><span>← All demos</span></a>
+  </nav>
+
+  <main>
+    <section class="wave" aria-labelledby="wave-title">
+      <div class="wave__dial" aria-hidden="true"></div>
+      <p class="wave__label">Transmission in progress</p>
+      <h1 id="wave-title" data-a11y-text-split data-split-type="letters" data-split-mode="visual">Good vibrations</h1>
+      <button type="button" class="wave__button">Pause wave</button>
+    </section>
+
+    <section class="recipe" aria-labelledby="recipe-title">
+      <p class="recipe__eyebrow">Basic recipe</p>
+      <h2 id="recipe-title">Send letters through a wave</h2>
+      <div class="recipe__grid">
+        <article class="code-card">
+          <h3>HTML</h3>
+          <pre><code>&lt;h1 data-a11y-text-split
+    data-split-type="letters"
+    data-split-mode="visual"&gt;
+  Good vibrations
+&lt;/h1&gt;
+
+&lt;button type="button"&gt;Pause wave&lt;/button&gt;</code></pre>
+        </article>
+        <article class="code-card">
+          <h3>JavaScript</h3>
+          <pre><code>import { splitAll } from
+  '../dist/index.js';
+
+splitAll();
+
+const letters = document.querySelectorAll(
+  '[data-split-letter]'
+);
+
+function animate(time) {
+  letters.forEach((letter, index) =&gt; {
+    const phase = time * 0.004 - index * 0.52;
+    letter.style.transform =
+      `translateY(${Math.sin(phase) * .22}em)`;
+  });
+  requestAnimationFrame(animate);
+}</code></pre>
+        </article>
+      </div>
+      <p class="recipe__note">Each letter receives a staggered sine-wave phase. Because the phase advances continuously, the loop has no endpoint where motion needs to stop and restart.</p>
+    </section>
+  </main>
+  <footer class="demo-footer" data-demo-footer>
+    <div class="demo-footer__inner">
+      <div class="demo-footer__brand">
+        <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+        <p class="demo-footer__credit">
+          <span class="demo-footer__plugin">A11yTextSplit</span>
+          <span class="demo-footer__separator" aria-hidden="true">&middot;</span>
+          Built by
+          <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a>
+          <span class="demo-footer__separator" aria-hidden="true">&middot;</span>
+          <a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a>
+        </p>
+        <p class="demo-footer__meta">
+          <span>a11y-text-split</span>
+          <span class="demo-footer__separator" aria-hidden="true">&middot;</span>
+          <span>MIT License</span>
+        </p>
+      </div>
+      <nav class="demo-footer__nav" aria-label="Project links">
+        <ul class="demo-footer__links">
+          <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Splitter">GitHub repository</a></li>
+          <li class="demo-footer__item"><a class="demo-footer__link" href="https://www.npmjs.com/package/a11y-splitter">npm package</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

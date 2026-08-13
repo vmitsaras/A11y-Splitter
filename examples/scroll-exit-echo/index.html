@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- page-metadata:start -->
+  <meta name="description" content="Reverse split-word motion as content enters and leaves the viewport, with direction-aware fallback behavior and accessible source text.">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Vasileios Mitsaras">
+  <link rel="canonical" href="https://vmitsaras.github.io/A11y-Splitter/scroll-exit-echo/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="A11yTextSplit">
+  <meta property="og:title" content="Bidirectional Scroll Exit Echo | A11yTextSplit">
+  <meta property="og:description" content="Reverse split-word motion as content enters and leaves the viewport, with direction-aware fallback behavior and accessible source text.">
+  <meta property="og:url" content="https://vmitsaras.github.io/A11y-Splitter/scroll-exit-echo/">
+  <meta property="og:image" content="https://vmitsaras.github.io/A11y-Splitter/meta-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="A11yTextSplit social card showing a paper ribbon separating into text tokens beside the words: Split the text, not the experience.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bidirectional Scroll Exit Echo | A11yTextSplit">
+  <meta name="twitter:description" content="Reverse split-word motion as content enters and leaves the viewport, with direction-aware fallback behavior and accessible source text.">
+  <meta name="twitter:image" content="https://vmitsaras.github.io/A11y-Splitter/meta-image.png">
+  <meta name="twitter:image:alt" content="A11yTextSplit social card showing a paper ribbon separating into text tokens beside the words: Split the text, not the experience.">
+  <title>Bidirectional Scroll Exit Echo | A11yTextSplit</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://vmitsaras.github.io/A11y-Splitter/scroll-exit-echo/#webpage",
+        "url": "https://vmitsaras.github.io/A11y-Splitter/scroll-exit-echo/",
+        "name": "Bidirectional Scroll Exit Echo | A11yTextSplit",
+        "description": "Reverse split-word motion as content enters and leaves the viewport, with direction-aware fallback behavior and accessible source text.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://vmitsaras.github.io/A11y-Splitter/#website"
+        },
+        "mainEntity": {
+          "@id": "https://vmitsaras.github.io/A11y-Splitter/scroll-exit-echo/#software"
+        },
+        "primaryImageOfPage": "https://vmitsaras.github.io/A11y-Splitter/meta-image.png"
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://vmitsaras.github.io/A11y-Splitter/scroll-exit-echo/#software",
+        "name": "A11yTextSplit",
+        "description": "Accessible, dependency-free text splitting for graphemes, words, and rendered lines.",
+        "codeRepository": "https://github.com/vmitsaras/A11y-Splitter",
+        "programmingLanguage": [
+          "TypeScript",
+          "JavaScript"
+        ],
+        "runtimePlatform": "Browser",
+        "version": "1.0.0",
+        "license": "https://github.com/vmitsaras/A11y-Splitter/blob/main/LICENSE",
+        "keywords": [
+          "accessibility",
+          "animation",
+          "grapheme",
+          "text-split",
+          "typography"
+        ],
+        "image": "https://vmitsaras.github.io/A11y-Splitter/meta-image.png",
+        "author": {
+          "@id": "https://github.com/vmitsaras/#person"
+        },
+        "targetProduct": {
+          "@type": "SoftwareApplication",
+          "name": "A11yTextSplit",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Any",
+          "runtimePlatform": "Browser",
+          "softwareVersion": "1.0.0",
+          "url": "https://www.npmjs.com/package/a11y-text-split"
+        },
+        "sameAs": [
+          "https://github.com/vmitsaras/A11y-Splitter",
+          "https://www.npmjs.com/package/a11y-text-split"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vmitsaras.github.io/A11y-Splitter/#website",
+        "url": "https://vmitsaras.github.io/A11y-Splitter/",
+        "name": "A11yTextSplit Demos",
+        "description": "Split text into styleable letter, word, or rendered-line tokens for animation while preserving one readable source for assistive technologies.",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://github.com/vmitsaras/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://github.com/vmitsaras/#person",
+        "name": "Vasileios Mitsaras",
+        "url": "https://github.com/vmitsaras/",
+        "sameAs": [
+          "https://github.com/vmitsaras/",
+          "https://linkedin.com/in/vasilis-mitsaras"
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- page-metadata:end -->
+
+  <link rel="stylesheet" href="../../dist/styles.css">
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="../scroll-shared.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body data-scroll-fallback>
+  <nav class="demo-nav" aria-label="Demo navigation"><a href="../"><span>← All demos</span></a></nav>
+  <main>
+    <header class="scroll-intro">
+      <p class="scroll-intro__eyebrow">Scroll reveal · Enter and exit</p>
+      <h1>Exit echo</h1>
+      <p class="scroll-intro__copy">Words arrive from below, hold their shape, and recede upward. Scroll back to reverse the story.</p>
+    </header>
+
+    <section class="scroll-stage"><div class="scroll-stage__content">
+      <p class="scroll-stage__eyebrow">Signal 01</p>
+      <h2 class="scroll-stage__text" data-a11y-text-split data-split-type="words" data-split-mode="visual" data-split-scroll>What enters will eventually leave.</h2>
+    </div></section>
+    <section class="scroll-stage"><div class="scroll-stage__content">
+      <p class="scroll-stage__eyebrow">Signal 02</p>
+      <h2 class="scroll-stage__text" data-a11y-text-split data-split-type="words" data-split-mode="visual" data-split-scroll>The echo carries a changed version.</h2>
+    </div></section>
+    <section class="scroll-stage"><div class="scroll-stage__content">
+      <p class="scroll-stage__eyebrow">Signal 03</p>
+      <h2 class="scroll-stage__text" data-a11y-text-split data-split-type="words" data-split-mode="visual" data-split-scroll>Return and the motion answers back.</h2>
+    </div></section>
+
+    <section class="recipe" aria-labelledby="recipe-title">
+      <p class="recipe__eyebrow">Basic recipe</p><h2 id="recipe-title">Animate entry and exit</h2>
+      <div class="recipe__grid">
+        <article class="code-card"><h3>HTML</h3><pre><code>&lt;h2 data-a11y-text-split
+    data-split-type="words"
+    data-split-mode="visual"
+    data-split-scroll&gt;
+  What enters will eventually leave.
+&lt;/h2&gt;</code></pre></article>
+        <article class="code-card"><h3>JavaScript</h3><pre><code>import { splitAll } from
+  '../../dist/index.js';
+import { scrollRevealAll } from
+  '../../dist/scroll.js';
+
+splitAll();
+scrollRevealAll();</code></pre></article>
+      </div>
+      <p class="recipe__note">The fallback records whether an element left above or below the viewport, allowing CSS to choose the correct exit direction without a scroll event listener.</p>
+    </section>
+  </main>
+  <footer class="demo-footer" data-demo-footer>
+    <div class="demo-footer__inner">
+      <div class="demo-footer__brand">
+        <p class="demo-footer__eyebrow">Accessibility plugin demo</p>
+        <p class="demo-footer__credit">
+          <span class="demo-footer__plugin">A11yTextSplit</span>
+          <span class="demo-footer__separator" aria-hidden="true">&middot;</span>
+          Built by
+          <a class="demo-footer__link" href="https://github.com/vmitsaras/">Vasileios Mitsaras</a>
+          <span class="demo-footer__separator" aria-hidden="true">&middot;</span>
+          <a class="demo-footer__link" href="https://linkedin.com/in/vasilis-mitsaras">LinkedIn profile</a>
+        </p>
+        <p class="demo-footer__meta">
+          <span>a11y-text-split</span>
+          <span class="demo-footer__separator" aria-hidden="true">&middot;</span>
+          <span>MIT License</span>
+        </p>
+      </div>
+      <nav class="demo-footer__nav" aria-label="Project links">
+        <ul class="demo-footer__links">
+          <li class="demo-footer__item"><a class="demo-footer__link" href="https://github.com/vmitsaras/A11y-Splitter">GitHub repository</a></li>
+          <li class="demo-footer__item"><a class="demo-footer__link" href="https://www.npmjs.com/package/a11y-splitter">npm package</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <script type="module" src="../scroll-demo.js?v=3"></script>
+</body>
+</html>

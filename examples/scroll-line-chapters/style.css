@@ -1,0 +1,79 @@
+:root {
+  color-scheme: dark;
+  color: #f5f0e5;
+  background: #101a2b;
+}
+
+.scroll-intro {
+  background: #101a2b;
+}
+
+.scroll-intro__eyebrow,
+.scroll-stage__eyebrow {
+  color: #f1b95b;
+}
+
+.scroll-stage {
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, transparent 49.9%, rgba(255, 255, 255, 0.12) 50%, transparent 50.1%),
+    #101a2b;
+}
+
+.scroll-stage:nth-of-type(3) { background-color: #202742; }
+.scroll-stage:nth-of-type(4) { background-color: #30203c; }
+
+.scroll-stage__text {
+  max-width: 11ch;
+  font-size: clamp(3.8rem, 9vw, 8.5rem);
+  font-weight: 750;
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+}
+
+.scroll-stage__text .a11y-text-split__line {
+  overflow: visible;
+  --reveal-hidden-transform:
+    translateX(calc((var(--reveal-index) + 1) * 1em))
+    translateY(0.35em)
+    skewX(-9deg);
+  --reveal-exit-transform:
+    translateX(calc((var(--reveal-index) + 1) * -0.8em))
+    translateY(-0.25em)
+    skewX(7deg);
+}
+
+[data-scroll-driver="fallback"] .reveal-token {
+  transition-duration: 900ms;
+  transition-delay: calc(var(--reveal-index, 0) * 120ms);
+}
+
+@supports (animation-timeline: view()) and (animation-range: cover 0% cover 100%) {
+  [data-scroll-driver="native"] .reveal-token {
+    opacity: 0;
+    transform: translateX(1.2em) skewX(-8deg);
+    animation: line-chapter-scroll 1s linear both;
+    animation-timeline: var(--a11y-text-split-scroll-timeline);
+    animation-range: cover 0% cover 100%;
+  }
+
+  @keyframes line-chapter-scroll {
+    0% {
+      opacity: 0;
+      transform: translateX(1.2em) skewX(-8deg);
+    }
+    32%, 68% {
+      opacity: 1;
+      transform: none;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-0.9em) skewX(6deg);
+    }
+  }
+}
+
+.recipe {
+  color: #101a2b;
+  background: #f1b95b;
+}
