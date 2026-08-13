@@ -12,7 +12,7 @@ export interface PluginDocs {
   };
   usage: string;
   selectors?: string[];
-  keyboard?: Array<{
+  keyboard: Array<{
     key: string;
     description: string;
   }>;
@@ -54,6 +54,13 @@ if (root instanceof HTMLElement) {
     "[data-split-letter]",
     "[data-split-line]",
     "[data-split-scroll]",
+  ],
+  keyboard: [
+    {
+      key: "No custom keyboard commands",
+      description:
+        "A11yTextSplit adds no keyboard interaction, tab stops, or focus movement. Native keyboard behavior remains with the authored element and any supported interactive descendants.",
+    },
   ],
   api: [
     {

@@ -9,6 +9,7 @@ import {
   segmentText,
   splitAll,
 } from "../src/index.js";
+import { docs } from "../src/docs.js";
 import { groupByRenderedLine } from "../src/lines.js";
 import { scrollRevealAll, supportsViewTimeline } from "../src/scroll.js";
 
@@ -71,6 +72,18 @@ function nextTask(): Promise<void> {
 afterEach(() => {
   vi.restoreAllMocks();
   Reflect.deleteProperty(globalThis, "IntersectionObserver");
+});
+
+describe("public docs metadata", () => {
+  it("provides non-empty keyboard guidance from the docs entry", () => {
+    expect(docs.keyboard).toEqual([
+      {
+        key: "No custom keyboard commands",
+        description:
+          "A11yTextSplit adds no keyboard interaction, tab stops, or focus movement. Native keyboard behavior remains with the authored element and any supported interactive descendants.",
+      },
+    ]);
+  });
 });
 
 describe("text segmentation and options", () => {
